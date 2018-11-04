@@ -14,6 +14,7 @@ import { routes } from './app.routes';
 import { UsersComponent } from './users/users.component';
 // import { NavComponent } from './nav/nav.component';
 import { HighlightDirective } from './highlight.directive';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HighlightDirective } from './highlight.directive';
       UsersComponent,
       // NavComponent,
       HighlightDirective,
+      NavComponent,
    ],
    imports: [
       RouterModule.forRoot(routes),

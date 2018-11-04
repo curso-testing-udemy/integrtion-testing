@@ -1,7 +1,8 @@
 import { Directive, Input, ElementRef, OnChanges } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlight]'
+  // tslint:disable-next-line:directive-selector
+  selector: '[highlight]'
 })
 export class HighlightDirective implements OnChanges {
   defaultColor =  'yellow';

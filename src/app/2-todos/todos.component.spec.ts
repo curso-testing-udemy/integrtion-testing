@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
@@ -43,4 +43,17 @@ describe('TodosComponent', () => {
     expect(component.todos.length).toBe(3);
 
   });
+
+  it('should load todos form the server', fakeAsync(() => {
+    const service = TestBed.get(TodoService);
+    // fixture.debugElement.injector.get(TodoService); we can use this one if we have provide the service at components providers
+    spyOn(service, 'getTodosPromise').and.returnValue(Promise.resolve([1, 2, 3 ]));
+
+    fixture.detectChanges();
+
+    tick();
+    expect(component.todos.length).toBe(3);
+    console.log('EXPECT WAS CALLED');
+
+  }));
 });
